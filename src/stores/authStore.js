@@ -6,7 +6,7 @@ const STORAGE_KEY = 'kb-accountbook-user'
 
 function getRequestErrorMessage(err, fallback) {
   if (err?.code === 'ERR_NETWORK') {
-    return 'API 서버에 연결할 수 없습니다. json-server가 실행 중인지 확인해주세요. (http://localhost:3001)'
+    return 'API 서버에 연결할 수 없습니다. json-server가 실행 중인지 확인해주세요. (https://ai-lovable-1.onrender.com/)'
   }
 
   return err?.message || fallback

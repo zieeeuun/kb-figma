@@ -51,8 +51,7 @@ export const useAccountBookStore = defineStore('accountBook', () => {
       const { data } = await api.get('/transactions', {
         params: {
           userId: authStore.user.id,
-          _sort: 'date',
-          _order: 'desc'
+          _sort: '-date'
         }
       })
       transactions.value = data

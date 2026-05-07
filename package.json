@@ -1,0 +1,32 @@
+{
+  "name": "kb-accountbook-vue3",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "server": "json-server --watch db.json --port 3001",
+    "dev:all": "concurrently \"npm run server\" \"npm run dev\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@vitejs/plugin-vue": "latest",
+    "axios": "latest",
+    "bootstrap": "^5.3.3",
+    "chart.js": "latest",
+    "json-server": "latest",
+    "pinia": "latest",
+    "vite": "latest",
+    "vue": "latest",
+    "vue-chartjs": "latest",
+    "vue-google-charts": "^1.1.0",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "latest",
+    "concurrently": "latest",
+    "tailwindcss": "latest"
+  }
+}

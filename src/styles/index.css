@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --kb-primary: #ff7a00;
+  --kb-primary-dark: #ea580c;
+  --kb-bg: #fff7ed;
+  --kb-surface: #ffffff;
+  --kb-text: #111827;
+  --kb-subtle-text: #6b7280;
+  --kb-line: #ffd7ba;
+}
+
+:root[data-theme='dark'] {
+  --kb-primary: #fb923c;
+  --kb-primary-dark: #f97316;
+  --kb-bg: #0f172a;
+  --kb-surface: #1e293b;
+  --kb-text: #e5e7eb;
+  --kb-subtle-text: #cbd5e1;
+  --kb-line: #334155;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, var(--kb-bg) 0%, #f8fafc 48%, #eff6ff 100%);
+  color: var(--kb-text);
+}
+
+.bg-primary { background-color: var(--kb-primary) !important; }
+.text-primary { color: var(--kb-primary) !important; }
+.border-primary { border-color: var(--kb-primary) !important; }
+.btn-kb {
+  background: var(--kb-primary);
+  color: white;
+  border: none;
+}
+.btn-kb:hover { background: var(--kb-primary-dark); color: white; }
+.router-link-active.nav-link { color: var(--kb-primary) !important; font-weight: 700; }
+.card-soft {
+  border: 1px solid var(--kb-line);
+  background: var(--kb-surface);
+  border-radius: 1.25rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+.app-surface {
+  background: var(--kb-surface) !important;
+  color: var(--kb-text) !important;
+  border-color: var(--kb-line) !important;
+}
+.text-secondary,
+.text-muted {
+  color: var(--kb-subtle-text) !important;
+}

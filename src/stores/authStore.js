@@ -6,7 +6,8 @@ const STORAGE_KEY = 'kb-accountbook-user'
 
 function getRequestErrorMessage(err, fallback) {
   if (err?.code === 'ERR_NETWORK') {
-    return 'API 서버에 연결할 수 없습니다. json-server가 실행 중인지 확인해주세요. (https://ai-lovable-1.onrender.com/)'
+    const baseURL = api.defaults.baseURL
+    return `API 서버에 연결할 수 없습니다. json-server가 실행 중인지 확인해주세요. (${baseURL})`
   }
 
   return err?.message || fallback
@@ -30,9 +31,9 @@ export const useAuthStore = defineStore('auth', () => {
     loading.value = true
     error.value = ''
     try {
-      const { data } = await api.get('/users', { params: { email, password } })
-      if (data.length === 0) throw new Error('이메일 또는 비밀번호가 올바르지 않습니다.')
-      const loginUser = data[0]
+      const { data } = await api.get('/users', { params: { email } })
+      const loginUser = data.find((u) => u.email === email && u.password === password)
+      if (!loginUser) throw new Error('이메일 또는 비밀번호가 올바르지 않습니다.')
       saveUser({ id: loginUser.id, name: loginUser.name, email: loginUser.email })
       await fetchProfile()
       return true
